@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "movie_theater.MovieTheater.SubscribeBookingSeats"
+  },
+  "requests": [
+    {
+      "location": "SubscribeBookingSeats-request.json"
+    }
+  ],
+  "operationType": "serverStreaming",
+  "invokerName": "grpc"
+}

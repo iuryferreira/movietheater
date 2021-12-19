@@ -1,0 +1,19 @@
+{
+  "id": "27d7dd10-7cc7-4041-8603-d3de16969dc2",
+  "importStreams": [
+    {
+      "id": "0b560595-ecf4-4227-9a92-ba36c29e27f9",
+      "name": "Protos",
+      "importerName": "ProtoFile",
+      "createMissingOperations": true,
+      "options": {
+        "files": [
+          "../../src/MovieTheater.Api/Protos"
+        ],
+        "importPaths": []
+      }
+    }
+  ],
+  "authConfigs": [],
+  "certificates": []
+}

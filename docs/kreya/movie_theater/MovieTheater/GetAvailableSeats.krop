@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "movie_theater.MovieTheater.GetAvailableSeats"
+  },
+  "requests": [
+    {
+      "location": "GetAvailableSeats-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc"
+}

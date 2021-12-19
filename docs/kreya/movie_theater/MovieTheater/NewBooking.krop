@@ -1,0 +1,12 @@
+{
+  "details": {
+    "methodFqn": "movie_theater.MovieTheater.NewBooking"
+  },
+  "requests": [
+    {
+      "location": "NewBooking-request.json"
+    }
+  ],
+  "operationType": "unary",
+  "invokerName": "grpc"
+}
