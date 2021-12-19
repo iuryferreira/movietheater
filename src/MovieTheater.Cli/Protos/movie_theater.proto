@@ -1,0 +1,17 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "MovieTheater.Cli.Protos";
+
+package movie_theater;
+
+service MovieTheater {
+  rpc SubscribeBookingSeats(google.protobuf.Empty) returns (stream BookingSeatsReply);
+}
+
+message BookingSeatsReply {
+  string ticketNumber = 1;
+  string customerName = 2;
+  string seatNumber = 3;
+}

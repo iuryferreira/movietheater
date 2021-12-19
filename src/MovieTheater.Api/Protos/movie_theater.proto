@@ -1,0 +1,47 @@
+﻿syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "MovieTheater.Api.Protos";
+
+package movie_theater;
+
+service MovieTheater {
+  rpc GetAvailableSeats(google.protobuf.Empty) returns (AvailableSeatsReply);
+  rpc NewBooking(NewBookingRequest) returns (BookingReply);
+  rpc SubscribeBookingSeats(google.protobuf.Empty) returns (stream BookingSeatsReply);
+}
+
+message AvailableSeatsReply {
+  repeated string SeatsNumber = 1;
+  int32 TotalSeats = 2;
+  int32 TotalAvailableSeats = 3;
+}
+
+message NewBookingRequest {
+  string customerName = 1;
+  string SeatNumber = 2;
+}
+
+message BookingReply {
+  bool success = 1;
+  oneof reply {
+    BookingSuccess booking = 2;
+    BookingError  error = 3;
+  }
+}
+
+message BookingError {
+  string description = 1;
+}
+
+message BookingSuccess {
+  string ticketNumber = 1;
+  string customerName = 2;
+}
+
+message BookingSeatsReply {
+  string ticketNumber = 1;
+  string customerName = 2;
+  string seatNumber = 3;
+}
