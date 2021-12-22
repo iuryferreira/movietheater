@@ -5,13 +5,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 var room = RoomFactory.Create();
 builder.Services.AddSingleton(room);
-builder.Services.AddGrpcReflection();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(policyBuilder =>
+   {
+       policyBuilder.WithOrigins("https://localhost:5001")
+           .AllowAnyHeader()
+           .AllowAnyMethod()
+           .AllowAnyOrigin();
+   });
+});
+
+builder.Services.AddGrpcReflection();
 builder.Services.AddGrpc();
 
 var app = builder.Build();
 
-app.MapGrpcService<MovieTheaterService>();
+app.UseCors();
+app.MapGrpcService<MovieTheaterService>().EnableGrpcWeb();
 app.MapGrpcReflectionService();
+
+app.UseGrpcWeb();
 
 app.Run();
