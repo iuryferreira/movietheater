@@ -1,0 +1,70 @@
+﻿@page "/"
+@using Google.Protobuf.WellKnownTypes
+
+@inject GrpcClient _grpc;
+
+<PageTitle>Bookings</PageTitle>
+
+<h1 class="has-text-centered title">Bookings</h1>
+<div class="columns">
+    <div class="column"></div>
+    <div class="column is-8">
+        <article class="content">
+            <table class="table">
+                <thead>
+                <tr table-header>
+                    <th>Ticket</th>
+                    <th>Date</th>
+                    <th>Seat</th>
+                    <th>Customer Name</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var booking in Bookings)
+                {
+                    <tr>
+                        <td ticket>🎫 @booking.Ticket</td>
+                        <td>📅 @booking.Date</td>
+                        <td seat>🪑 @booking.Seat</td>
+                        <td>👤 @booking.Customer</td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </article>
+    </div>
+    <div class="column"></div>
+</div>
+
+@code {
+
+    private List<Booking> Bookings { get; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await GetBookings();
+    }
+
+
+    private async Task GetBookings()
+    {
+        var source = new CancellationTokenSource();
+        var cancellationToken = source.Token;
+
+        var streaming = _grpc.Client.SubscribeBookingSeats(new Empty(), cancellationToken: cancellationToken);
+        while (await streaming.ResponseStream.MoveNext(cancellationToken))
+        {
+            var response = streaming.ResponseStream.Current;
+            Bookings.Add(new Booking
+            {
+                Ticket = response.TicketNumber,
+                Date = DateTime.Now,
+                Seat = response.SeatNumber,
+                Customer = response.CustomerName
+            });
+
+            StateHasChanged();
+        }
+    }
+
+}

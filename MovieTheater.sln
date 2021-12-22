@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
@@ -8,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTheater.Api", "src\MovieTheater.Api\MovieTheater.Api.csproj", "{C9FDF837-1259-4E77-920F-B0E4DA787F1F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTheater.Cli", "src\MovieTheater.Cli\MovieTheater.Cli.csproj", "{9899D296-9E18-4995-B0E5-1CFC29754C84}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieTheater.Web", "src\MovieTheater.Web\MovieTheater.Web.csproj", "{366BE95E-E615-4849-9396-53F836E7B05B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,10 +28,14 @@ Global
 		{9899D296-9E18-4995-B0E5-1CFC29754C84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9899D296-9E18-4995-B0E5-1CFC29754C84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9899D296-9E18-4995-B0E5-1CFC29754C84}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366BE95E-E615-4849-9396-53F836E7B05B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366BE95E-E615-4849-9396-53F836E7B05B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366BE95E-E615-4849-9396-53F836E7B05B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366BE95E-E615-4849-9396-53F836E7B05B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C9FDF837-1259-4E77-920F-B0E4DA787F1F} = {9BD32F56-08C3-4219-B450-EEB1FBC01DC5}
 		{9899D296-9E18-4995-B0E5-1CFC29754C84} = {9BD32F56-08C3-4219-B450-EEB1FBC01DC5}
+		{366BE95E-E615-4849-9396-53F836E7B05B} = {9BD32F56-08C3-4219-B450-EEB1FBC01DC5}
 	EndGlobalSection
 EndGlobal
-
