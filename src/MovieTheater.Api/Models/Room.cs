@@ -1,4 +1,5 @@
 ﻿using System.Collections.Immutable;
+using Google.Protobuf.WellKnownTypes;
 
 namespace MovieTheater.Api.Models;
 
@@ -20,7 +21,7 @@ public class Room
 
         var booking = new Booking
         {
-            TicketNumber = Guid.NewGuid().ToString(),
+            TicketNumber = $"{DateTime.Now.ToFileTimeUtc()}{seatNumber}",
             CustomerName = customerName
         };
 
